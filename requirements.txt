@@ -1,0 +1,6 @@
+
+django>=5.1.2
+whitenoise>=6.5.0
+gunicorn>=20.1.0
+cloudinary>=1.29.0
+django-cloudinary-storage>=0.3.0
