@@ -1,0 +1,33 @@
+{% extends 'rolls/common.html' %}
+
+    {% block content %}
+
+        <header class="bg-light py-5 mt-5 text-center my-5">
+            <div class="container">
+                <h1 class="display-4 fw-bold">Il nostro Menu</h1>
+                <p class="lead">Scopri tutte le nostre specialità, preparate con ingredienti freschi e di alta qualità. Un'esperienza di gusto unica per sviluppatori creativi!</p>
+            </div>
+        </header>
+
+        <div class="container my-5">
+            <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-4">
+                {% for roll in rolls %}
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="{{ roll.immagine.url }}" class="card-img-top" alt="{{ roll.nome }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ roll.nome }} Roll</h5>
+                            <p class="card-text">{{ roll.descrizione }}</p>
+                            <p class="card-text">€ {{ roll.prezzo }}</p>
+                            <form method="post" action="{% url 'aggiungi_al_carrello' roll.id %}" onsubmit="event.preventDefault(); aggiungiAlCarrello(this);">
+                                {% csrf_token %}
+                                <input type="number" name="quantita" min="1" value="1" class="form-control mb-2">
+                                <button type="submit" class="btn btn-outline-warning d-grid gap-2">Aggiungi al Carrello</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% endblock %}

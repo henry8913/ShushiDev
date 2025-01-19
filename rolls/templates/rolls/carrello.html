@@ -1,0 +1,54 @@
+{% extends 'rolls/common.html' %}
+
+    {% block content %}
+
+        <!-- Sezione Intestazione -->
+        <header class="bg-light py-5 text-center my-5">
+            <div class="container">
+                <h1 class="display-4 fw-bold">Il tuo Carrello</h1>
+                <p class="lead">Rivedi i tuoi prodotti prima di confermare l'ordine.</p>
+            </div>
+        </header>
+
+        <!-- Sezione Carrello -->
+        <div class="container my-5">
+            <table class="table table-striped">
+                <thead class="table-warning">
+                    <tr>
+                        <th>Prodotto</th>
+                        <th>Quantità</th>
+                        <th>Prezzo Totale</th>
+                        <th>Azioni</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in cart_items %}
+                    <tr>
+                        <td>{{ item.roll.nome }}</td>
+                        <td>{{ item.quantita }}</td>
+                        <td>€ {{ item.totale }}</td>
+                        <td>
+                            <form method="post" action="{% url 'rimuovi_dal_carrello' item.roll.id %}" style="display:inline;">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-danger btn-sm">Rimuovi</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="4" class="text-center">Il carrello è vuoto.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <h3 class="text-end">Totale: <strong>€ {{ totale }}</strong></h3>
+            <div class="text-end">
+                {% if cart_items %}
+                    <a href="{% url 'conferma_ordine' %}" class="btn btn-warning btn-lg mt-4">Conferma Ordine</a>
+                {% else %}
+                    <a href="{% url 'menu' %}" class="btn btn-secondary btn-lg mt-4">Sfoglia il Menu</a>
+                {% endif %}
+            </div>
+        </div>
+
+    {% endblock %}

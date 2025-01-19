@@ -1,0 +1,122 @@
+{% extends 'rolls/common.html' %}
+
+    {% block content %}
+        <!-- Hero Section -->
+        <header class="bg-light py-5 text-center my-5">
+            <div class="container">
+                <h1 class="display-4 fw-bold">Sushi per Sviluppatori</h1>
+                <p class="lead">Un mix perfetto di gusto e ispirazione per le tue pause pranzo. Scopri come i nostri roll possono aiutarti a scrivere codice più performante!</p>
+                <div class="d-flex justify-content-center gap-3">
+                    <a href="{% url 'menu' %}" class="btn btn-warning btn-lg text-white text-decoration-none">Ordina il tuo Sushi</a>
+                    <a href="{% url 'contact' %}" class="btn btn-secondary btn-lg text-white text-decoration-none">Contattaci</a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Chi Siamo -->
+        <div class="container">
+            <h2 class="text-center">Chi Siamo</h2>
+            <p class="lead text-center">La storia e la passione dietro SushiDev, dove innovazione e tradizione si incontrano per creare momenti unici.</p>
+            
+            <!-- Sezione Storia -->
+            <section class="my-5">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        {% load static %}
+                        <img src="{% static 'rolls/3.png' %}" class="img-fluid rounded my-3" alt="Team SushiDev">
+                    </div>
+                    <div class="col-md-6">
+                        <h3>La nostra visione</h3>
+                        <p>SushiDev nasce dall’idea di un gruppo di sviluppatori appassionati non solo di codice, ma anche di buona cucina. Unendo tradizione e innovazione, offriamo sushi di altissima qualità pensato per ispirare produttività e creatività.</p>
+                        <p>Crediamo che ogni roll possa essere un momento di ispirazione per chi affronta sfide creative nel lavoro quotidiano. Con ingredienti freschi e sapori unici, siamo qui per rendere ogni pausa pranzo un'esperienza straordinaria.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sezione Missione -->
+            <section class="my-5 bg-light p-4 rounded">
+                <h3 class="text-center mb-4">La nostra missione</h3>
+                <p>
+                    In un mondo sempre più veloce e connesso, vogliamo essere il punto di riferimento per chi cerca una pausa ricca di sapori autentici. Crediamo che il cibo possa migliorare il modo in cui lavoriamo, viviamo e collaboriamo. Per questo, ci impegniamo a:
+                </p>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Utilizzare solo ingredienti freschi e di alta qualità.</li>
+                    <li class="list-group-item">Creare combinazioni di sapori uniche che ispirano la creatività.</li>
+                    <li class="list-group-item">Offrire un’esperienza culinaria che si adatta perfettamente alla vita di uno sviluppatore.</li>
+                    <li class="list-group-item">Supportare il benessere e la produttività dei nostri clienti.</li>
+                </ul>
+            </section>
+
+            <!-- Sezione Valori -->
+            <section class="my-5">
+                <h3 class="text-center">I nostri valori</h3>
+                <div class="row text-center mt-4">
+                    <div class="col-md-4">
+                        <i class="bi bi-heart-fill text-warning fs-1"></i>
+                        <h5 class="mt-2">Passione</h5>
+                        <p>Mettiamo il cuore in ogni roll che prepariamo, perché crediamo che il cibo sia un’arte.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <i class="bi bi-people-fill text-warning fs-1"></i>
+                        <h5 class="mt-2">Comunità</h5>
+                        <p>Costruiamo relazioni con i nostri clienti e partner, condividendo i nostri valori e la nostra passione.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <i class="bi bi-lightbulb-fill text-warning fs-1"></i>
+                        <h5 class="mt-2">Innovazione</h5>
+                        <p>Uniamo tradizione e tecnologia per portare un’esperienza unica nel mondo del sushi.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sezione Team -->
+            <section class="my-5">
+                <h3 class="text-center">Il nostro team</h3>
+                <div class="row mt-4">
+                    <div class="col-md-4 text-center">
+                        {% load static %}
+                        <img src="{% static 'rolls/1.png' %}" class="img-fluid rounded-circle" alt="Fondatore" width="150">
+                        <h5 class="mt-3">Marco Rossi</h5>
+                        <p>Fondatore e CEO</p>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        {% load static %}
+                        <img src="{% static 'rolls/2.png' %}" class="img-fluid rounded-circle" alt="Chef" width="150">
+                        <h5 class="mt-3">Yuki Tanaka</h5>
+                        <p>Head Chef</p>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        {% load static %}
+                        <img src="{% static 'rolls/3.png' %}" class="img-fluid rounded-circle" alt="Manager" width="150">
+                        <h5 class="mt-3">Laura Bianchi</h5>
+                        <p>Manager Operativo</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Menu in Evidenza -->
+        <div class="container my-5">
+            <h2 class="text-center">I nostri bestseller</h2>
+            <p class="lead text-center">Scopri i roll più amati dai nostri clienti!</p>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                {% for roll in rolls|slice:":3" %}
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="{{ roll.immagine.url }}" class="card-img-top" alt="California Roll">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ roll.nome }} Roll</h5>
+                            <p class="card-text">{{ roll.descrizione }}</p>
+                            <p class="card-text">€ {{ roll.prezzo}} </p>
+                            <a href="{% url 'menu' %}" class="btn btn-outline-warning d-grid gap-2">Scopri di più</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="text-center mt-4">
+                <a href="{% url 'menu' %}" class="btn btn-warning btn-lg text-white text-decoration-none">Visualizza tutto il Menu</a>
+            </div>
+        </div>
+        
+    {% endblock %}

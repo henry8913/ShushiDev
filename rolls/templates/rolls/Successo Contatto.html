@@ -1,0 +1,22 @@
+{% extends 'rolls/common.html' %}
+
+    {% block content %}
+    
+        <!-- Sezione Intestazione -->
+        <header class="bg-light py-5 text-center my-5">
+            <div class="container">
+                <h1 class="display-4 fw-bold">Grazie per il tuo messaggio!</h1>
+                <p class="lead">Ti risponderemo al più presto per aiutarti con le tue richieste.</p>
+            </div>
+        </header>
+    
+        <!-- Sezione Conferma -->
+        <div class="container text-center my-5">
+            <i class="bi bi-check-circle-fill text-success fs-1"></i>
+            <h2 class="mt-3">Messaggio Inviato con Successo!</h2>
+            <p class="lead">Grazie per averci contattato. Il nostro team ti risponderà nel minor tempo possibile.</p>
+            <a href="/" class="btn btn-warning btn-lg mt-4">Torna alla Home</a>
+        </div>
+    
+    {% endblock %}
+    

@@ -1,0 +1,88 @@
+{% extends 'rolls/common.html' %}
+
+    {% block content %}
+
+        <!-- Sezione Intestazione -->
+        <header class="bg-light py-5 text-center my-5">
+            <div class="container">
+                <h1 class="display-4 fw-bold">Contattaci</h1>
+                <p class="lead">Siamo qui per rispondere a tutte le tue domande e aiutarti a vivere al meglio l'esperienza SushiDev!</p>
+            </div>
+        </header>
+
+        <!-- Sezione Informazioni di Contatto -->
+        <div class="container my-5">
+            <div class="row gy-4">
+                <!-- Orari -->
+                <div class="col-md-4 text-center">
+                    <i class="bi bi-clock-fill text-warning fs-1"></i>
+                    <h5 class="mt-3">Orari di apertura</h5>
+                    <p>Lun-Sab: 10:00 - 22:00<br>Dom: 12:00 - 20:00</p>
+                </div>
+                <!-- Indirizzo -->
+                <div class="col-md-4 text-center">
+                    <i class="bi bi-geo-alt-fill text-warning fs-1"></i>
+                    <h5 class="mt-3">Indirizzo</h5>
+                    <p>Via degli Sviluppatori 42<br>Milano, Italia</p>
+                </div>
+                <!-- Contatti -->
+                <div class="col-md-4 text-center">
+                    <i class="bi bi-telephone-fill text-warning fs-1"></i>
+                    <h5 class="mt-3">Contatti</h5>
+                    <p>Telefono: +39 02 123 4567<br>Email: <a href="mailto:info@sushidev.com" class="text-warning text-decoration-none">info@sushidev.com</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sezione Modulo di Contatto -->
+        <div class="container my-5">
+            <h2 class="text-center">Inviaci un Messaggio</h2>
+            <p class="lead text-center">Compila il modulo sottostante e ti risponderemo il prima possibile.</p>
+            <form method="post">
+                {% csrf_token %}
+                <div class="row gy-4">
+                    <!-- Nome -->
+                    <div class="col-md-6">
+                        <label for="nome" class="form-label">Nome</label>
+                        <input type="text" class="form-control" id="nome" name="nome" placeholder="Inserisci il tuo nome" required>
+                    </div>
+                    <!-- Cognome -->
+                    <div class="col-md-6">
+                        <label for="cognome" class="form-label">Cognome</label>
+                        <input type="text" class="form-control" id="cognome" name="cognome" placeholder="Inserisci il tuo cognome">
+                    </div>
+                    <!-- Email -->
+                    <div class="col-md-6">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Inserisci la tua email" required>
+                    </div>
+                    <!-- Telefono -->
+                    <div class="col-md-6">
+                        <label for="telefono" class="form-label">Telefono (opzionale)</label>
+                        <input type="tel" class="form-control" id="telefono" name="telefono" placeholder="Inserisci il tuo numero di telefono">
+                    </div>
+                    <!-- Messaggio -->
+                    <div class="col-12">
+                        <label for="messaggio" class="form-label">Messaggio</label>
+                        <textarea class="form-control" id="messaggio" name="messaggio" rows="5" placeholder="Scrivi qui il tuo messaggio" required></textarea>
+                    </div>
+                    <!-- Pulsante Invio -->
+                    <div class="col-12 text-center">
+                        <button type="submit" class="btn btn-warning btn-lg">Invia Messaggio</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+        <!-- Sezione Mappa -->
+        <div class="container my-5">
+            <h2 class="text-center">Dove Trovarci</h2>
+            <div class="ratio ratio-16x9 mt-4">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2884.3480243536274!2d9.191383!3d45.464211!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x3e61b229fd3451!2sVia%20degli%20Sviluppatori%2042%2C%20Milano!5e0!3m2!1sit!2sit!4v1616552941098!5m2!1sit!2sit" 
+                    allowfullscreen 
+                    loading="lazy"></iframe>
+            </div>
+        </div>
+    {% endblock %}
