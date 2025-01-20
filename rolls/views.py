@@ -7,9 +7,6 @@ def home(request):
     rolls = Roll.objects.all()
     return render(request, 'rolls/index.html', {'rolls': rolls})
 
-def home(request):
-    return render(request, 'rolls/index.html', {'request': request})
-
 # Vista per la pagina del menu
 def menu(request):
     rolls = Roll.objects.all()

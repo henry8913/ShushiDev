@@ -1,0 +1,3 @@
+# Ignora tutte le directory __pycache__
+__pycache__/
+*.py[cod]
