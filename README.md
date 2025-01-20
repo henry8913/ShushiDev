@@ -17,57 +17,38 @@ Benvenuto in **SushiDev**, un progetto sviluppato in Django che simula un sito w
 
 ---
 
-## **Come Scaricare e Usare il Progetto**
+## **Come Testare il Progetto in Locale**
 
-Segui questi passaggi per scaricare e avviare il progetto in locale:
+Segui questi semplici passaggi per avviare il progetto in locale:
 
-### **1. Clona il Repository**
+### **1. Pre-requisiti**
+Assicurati di avere installato:
+- **Python 3.8+**: Puoi scaricarlo da [python.org](https://www.python.org/downloads/).
+- **pip**: Normalmente incluso con Python.
+- **Git**: Per clonare il repository.
+
+### **2. Clona il Repository**
 Clona il repository GitHub nella tua macchina locale:
 ```bash
 git clone <URL_DEL_REPOSITORY>
 cd ShushiDev
 ```
 
-### **2. Crea un Ambiente Virtuale**
-Crea e attiva un ambiente virtuale per gestire le dipendenze:
+### **3. Avvia il Server di Sviluppo**
+Apri la cartella clonata in Visual Studio Code o un altro editor, quindi esegui:
 ```bash
-python3 -m venv env
-source env/bin/activate  # Su macOS/Linux
-env\Scripts\activate   # Su Windows
+python3 manage.py runserver
 ```
+Visita il sito su [http://127.0.0.1:8000](http://127.0.0.1:8000). Questo indirizzo funziona solo sulla tua macchina locale.
 
-### **3. Installa le Dipendenze**
-Installa tutte le dipendenze necessarie:
-```bash
-pip install -r requirements.txt
-```
-
-### **4. Configura il File `.env`**
-Crea un file `.env` nella root del progetto con le seguenti variabili di ambiente:
-```env
-SECRET_KEY=la-tua-chiave-segreta
-DEBUG=True
-ALLOWED_HOSTS=*
-```
-
-### **5. Esegui le Migrazioni**
-Applica le migrazioni al database:
-```bash
-python manage.py migrate
-```
-
-### **6. Carica i File Statici**
-Raccogli i file statici:
-```bash
-python manage.py collectstatic
-```
-
-### **7. Avvia il Server**
-Avvia il server di sviluppo:
-```bash
-python manage.py runserver
-```
-Visita il sito su `http://127.0.0.1:8000`.
+### **4. Accesso all'Amministrazione**
+Se vuoi accedere alla parte di amministrazione di Django:
+1. Crea un superutente (se non lo hai già fatto):
+   ```bash
+   python3 manage.py createsuperuser
+   ```
+2. Segui le istruzioni per impostare username, email e password.
+3. Visita [http://127.0.0.1:8000/admin](http://127.0.0.1:8000/admin) per accedere al pannello di amministrazione.
 
 ---
 
@@ -103,5 +84,6 @@ SushiDev/
 Siamo aperti a contributi! Se hai idee, miglioramenti o vuoi aggiungere nuove funzionalità, sentiti libero di fare un fork del progetto e inviare una pull request.
 
 Grazie per aver provato **SushiDev**! 🍣
+
 
 
