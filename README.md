@@ -52,14 +52,6 @@ Se vuoi accedere alla parte di amministrazione di Django:
 
 ---
 
-## **Prova il Progetto su Vercel**
-Se preferisci, puoi vedere una versione live del progetto su Vercel. Visita il seguente URL:
-```
-<URL_DEL_PROGETTO_SU_VERCEL>
-```
-
----
-
 ## **Struttura del Progetto**
 
 ```
