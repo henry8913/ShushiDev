@@ -1,14 +1,5 @@
-Requisiti Software:
-
-1. Python 3.8+:
-   Per eseguire il progetto Django. Scaricalo da: https://www.python.org/downloads/
-
-2. pip:
-   Per installare le dipendenze. Normalmente incluso con Python.
-
-3. Git:
-   Per clonare il repository da GitHub. Scaricalo da: https://git-scm.com/
-
-4. Editor di Testo/IDE:
-   - Visual Studio Code (con estensioni Python).
-   - PyCharm (opzionale, per una configurazione avanzata).
+django>=3.2,<5.0
+gunicorn
+dj-database-url
+whitenoise
+psycopg2-binary
