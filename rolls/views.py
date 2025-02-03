@@ -87,7 +87,7 @@ def contact(request):
             messaggio=messaggio
         )
         return redirect("successo_contatto")
-    return render(request, "rolls/contattaci.html")
+    return render(request, "rolls/Contattaci.html")
 
 # Vista per il successo del contatto
 def successo_contatto(request):
